@@ -1,0 +1,5 @@
+lst=[]
+for y in range(2,1001,2):
+  if y%5==0 and y%7==0:
+    lst.append(y)
+print(lst)
