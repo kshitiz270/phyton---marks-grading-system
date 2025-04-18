@@ -1,0 +1,11 @@
+lst=[1,2,3,4,55,66,77,9,10,101]
+
+clear_list=[]
+
+for i in range(len(lst)):
+
+ if lst[i]>50:
+
+  clear_list.append(lst[i])
+
+  print(lst[i])
