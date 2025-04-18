@@ -1,0 +1,9 @@
+lst=[[1,2,3,6],
+     [4,5,6,7],
+     [7,8,9,8]]
+
+for i in range(0,len(lst)):
+
+  for j in range(0,len(lst[i])):
+
+    print(lst[i][j])
