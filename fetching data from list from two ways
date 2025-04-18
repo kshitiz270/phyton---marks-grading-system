@@ -1,0 +1,5 @@
+lst=[[1,2,3,4,55],66,77,9,10,101]
+
+lst[0]-when lst  is under a list
+
+lst[0:1]-when list is single
