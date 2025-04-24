@@ -1,0 +1,13 @@
+import pandas as padi
+from tqdm.auto import tqdm
+da=padi.read_csv('/content/datasets/Airbnb/airbnb_v2.csv')
+da['country']=da['country'].str.strip()
+countries=da['country'].unique()
+for country in tqdm(cities):
+  da=padi.read_csv('/content/datasets/Airbnb/airbnb_v2.csv')
+  da['country']=da['country'].str.strip()
+da=da[da['country']=='countries']
+da['rating']=da['rating'].str.replace('New','0')
+da['rating']=da['rating'].astype('float')
+da['reviews']=da['reviews'].astype('int')
+da.sort_values(by='reviews',ascending=False).head(10).to_csv('csvs/'+ country +'.csv')
