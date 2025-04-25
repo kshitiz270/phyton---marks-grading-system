@@ -1,0 +1,11 @@
+import pandas as ps
+from tqdm.auto import tqdm
+ps=peppy.read_csv('/content/top_10_restudent.csv')
+ps['city']=ps['city'].str.strip()
+cities=ps['city'].unique()
+for city in tqdm(cities):
+  ps=peppy.read_csv('/content/top_10_restudent.csv')
+  ps['city']=ps['city'].str.strip()
+  ps=ps[ps['city']=='cities']
+  ps['rating_and_rating_count']=ps['rating_count']*ps['rating']
+  ps.sort_values(by='rating_and_rating_count',ascending=False).head(10).to_csv('res/'+ city +'.csv')
