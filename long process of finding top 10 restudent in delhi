@@ -1,0 +1,15 @@
+import pandas as peppy
+ps=peppy.read_csv('/content/top_10_restudent.csv')
+ps.head()
+ps.isnull().sum()
+len(ps)-ps['id'].nunique()
+ps.columns
+ps.head()
+ps['city']=ps['city'].str.strip()
+ps=ps[ps['city']=='Delhi']
+ps=ps[ps['cost']<3000]
+ps.isnull().sum()
+ps['rating_count']=ps['rating']
+ps['rating_count'].unique()
+ps['rating_and_rating_count']=ps['rating_count']*ps['rating']
+ps.sort_values(by='rating_and_rating_count',ascending=False).head(10).to_csv('top_10_restudent''.csv')
