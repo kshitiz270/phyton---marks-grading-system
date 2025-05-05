@@ -1,0 +1,65 @@
+Which restaurant of Bangalore is visited by least number of people?
+Which restaurant has generated maximum revenue all over india? 
+How many restaurants have rating more than the average rating?
+Which restaurant of Delhi has generated max revenue?
+Which restaurant chain has maximum number of restaurants?
+Which restaurant chain has generated maximum revenue?
+Which city has maximum number of restaurants?
+Which city has generated maximum revenue all over india?
+List 10 least expensive cuisines?
+List 10 most expensive cuisines?
+Which city has Biryani as most popular cuisine.
+12. List top 10 restaurants generate maximum revenue
+13. Find the names of restaurants that serve unique cuisines in their city- Answers:- SELECT * FROM (select city,avg(rating_count) as counted from bs.restaurants where city='bangalore')
+as fomous order by counted desc;
+
+ select * from 
+(select distinct name as res,cost*rating_count as revenue from bs.restaurants group by cost*rating_count,name )
+as gen_revenue order by revenue desc;
+
+select count(name) from (select name,avg(rating) as avg_rating from bs.restaurants group by name )
+ as avg_res order by avg_rating desc;
+
+select * from 
+(select city as city,cost*rating_count as revenue,name from bs.restaurants where city='delhi' )
+as gen_revenue order by revenue desc limit 1;
+
+ select * from
+(select max(name) as max_num from bs.restaurants group by name)as max_res order by  max_num desc limit 1;
+
+ select * from 
+(select city as city,cost*rating_count as revenue,name from bs.restaurants )
+as gen_revenue order by revenue desc limit 1;
+
+select * from(select city,max(name) as max_res from bs.restaurants group by city) 
+as max_no order by max_res desc limit 1;
+
+ select * from 
+(select distinct city as city,cost*rating_count as revenue from bs.restaurants group by cost*rating_count,city )
+as gen_revenue order by revenue desc;
+
+select cuisine,average_cost from
+(select cuisine,avg(cost) as average_cost from bs.restaurants group by cuisine) 
+as cuisine_cost order by average_cost  limit 10;
+
+select cuisine,average_cost from
+(select cuisine,avg(cost) as average_cost from bs.restaurants group by cuisine) 
+as cuisine_cost order by average_cost desc limit 10;
+
+select * from
+(select cuisine,city as counted from bs.restaurants where cuisine='biryani')
+as fomous order by cuisine desc limit 1;
+
+select * from 
+(select distinct city as city,cost*rating_count as revenue from bs.restaurants group by cost*rating_count,city )
+as gen_revenue order by revenue desc limit 10;
+
+select * from (select distinct(cuisine),name as dis_res from bs.restaurants  group by cuisine, name ) 
+as top_res order by dis_res desc;
+
+
+
+
+
+
+
